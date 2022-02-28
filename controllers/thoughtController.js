@@ -9,9 +9,9 @@ module.exports = {
             .catch((err) => res.status(500).json(err));
     },
     getSingleThought(req, res) {
-        Application.findOne({ _id: req.params.thoughtId })
+        Thought.findOne({ _id: req.params.thoughtId })
             .then((thought) =>
-                !application
+                !thought
                     ? res.status(404).json({ message: 'No thought with that ID' })
                     : res.json(thought)
             )
