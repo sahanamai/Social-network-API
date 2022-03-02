@@ -51,27 +51,7 @@ module.exports = {
     },
 
     // //POST` to add a new friend to a user's friend list
-    // addUserFriendList(req, res) {
-    //     User.create(req.body)
-    //         .then((friends) => {
-    //             return User.findOneAndUpdate(
-    //                 { _id: req.body.userId },
-    //                 { $addToSet: { friends: friends._id } },
-    //                 { new: true }
-    //             );
-    //         })
-    //         .then((user) =>
-    //             !user
-    //                 ? res.status(404).json({
-    //                     message: 'friendlist created, but found no user with that ID',
-    //                 })
-    //                 : res.json('Created the friendlist 🎉')
-    //         )
-    //         .catch((err) => {
-    //             console.log(err);
-    //             res.status(500).json(err);
-    //         });
-    // },
+  
 };
 
 
