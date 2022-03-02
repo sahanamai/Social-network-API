@@ -51,7 +51,26 @@ module.exports = {
     },
 
     // //POST` to add a new friend to a user's friend list
-  
+    //Array of `_id` values referencing the `User` model (self-reference)(self reference)
+    addFriend(req, res) {
+        User.findOneAndUpdate(
+            { _id: req.params.userId },
+            { $addToSet: { friends: req.params.friendId } },
+            { new: true }
+        )
+            
+            .then((friend) =>
+            !friend
+                ? res.status(404).json({
+                    message: ' No user found with that ID',
+                })
+                : res.json('Add friend 🎉')
+        )
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+},
 };
 
 
