@@ -16,12 +16,12 @@ module.exports = {
                     ? res.status(404).json({ message: 'No user with that ID' })
                     : res.json(user)
             )
-            .catch((err) => res.status(500).json(err));
+            .catch((err) => {res.status(500).json(err)});
     },
     // create a new user
     createUser(req, res) {
         User.create(req.body)
-            .then((user) => res.json(user))
+            .then((user) => {res.status(200).json(user)})
             .catch((err) => res.status(500).json(err));
     },
     //delete a user
@@ -47,7 +47,7 @@ module.exports = {
                     ? res.status(404).json({ message: 'No user with this id!' })
                     : res.json(user)
             )
-            .catch((err) => res.status(500).json(err));
+            .catch((err) => {res.status(500).json(err)});
     },
 
     // //POST` to add a new friend to a user's friend list
